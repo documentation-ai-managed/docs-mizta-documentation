@@ -1,0 +1,141 @@
+---
+title: Features
+description: Comprehensive overview of Mizta's key features and capabilities
+---
+
+## Core Features of Mizta
+
+Mizta offers a robust set of features designed to streamline documentation workflows and enhance team collaboration.
+
+<Columns cols={3}>
+  <Card title="Real-time Collaboration" icon="users" href="#">
+    Edit documents simultaneously with your team. See changes in real-time and track editing history.
+  </Card>
+  <Card title="Version Control" icon="git-branch" href="#">
+    Maintain version history for all documents. Compare changes and revert when needed.
+  </Card>
+  <Card title="Search & Discovery" icon="search" href="#">
+    Powerful search across all documentation with filters, tags, and advanced query options.
+  </Card>
+</Columns>
+
+## Collaboration Tools
+
+Work efficiently with your team using Mizta's collaboration features.
+
+<Tabs>
+  <Tab title="Comments" icon="message-square">
+    Leave comments on specific sections of documents. Mention team members and track discussion threads.
+  </Tab>
+  <Tab title="Review Process" icon="check-circle">
+    Submit documents for review, assign reviewers, and track approval workflows.
+  </Tab>
+  <Tab title="Notifications" icon="bell">
+    Get notified of document changes, mentions, and review requests via email or in-app alerts.
+  </Tab>
+</Tabs>
+
+## Content Management
+
+Organize and manage your documentation with powerful content management tools.
+
+<Steps>
+  <Step title="Templates" icon="file-text">
+    Use pre-built templates for common document types like API docs, user guides, and release notes.
+  </Step>
+  <Step title="Bulk Operations" icon="layers">
+    Perform bulk actions like moving, copying, or deleting multiple documents at once.
+  </Step>
+  <Step title="Content Validation" icon="shield">
+    Set up validation rules to ensure documentation quality and consistency.
+  </Step>
+</Steps>
+
+## Integration Capabilities
+
+Connect Mizta with your existing tools and workflows.
+
+<ExpandableGroup>
+  <Expandable title="GitHub Integration" default-open="true">
+    Sync documentation with GitHub repositories. Automatically update docs when code changes.
+  </Expandable>
+  <Expandable title="Slack Integration" default-open="false">
+    Receive notifications in Slack channels and create docs from Slack messages.
+  </Expandable>
+  <Expandable title="API Access" default-open="false">
+    Use our REST API to integrate Mizta with custom workflows and third-party applications.
+  </Expandable>
+</ExpandableGroup>
+
+## Advanced Features
+
+Leverage advanced capabilities for enterprise documentation needs.
+
+<CodeGroup tabs="Webhook,CustomTheme">
+  ```javascript
+// Example webhook payload
+{
+  "event": "document.updated",
+  "document": {
+    "id": "doc-123",
+    "title": "API Reference",
+    "spaceId": "space-456"
+  },
+  "changes": {
+    "author": "user@example.com",
+    "timestamp": "2024-01-15T10:30:00Z"
+  }
+}
+  ```
+  ```css
+/* Custom theme example */
+:root {
+  --brand-color: #3B82F6;
+  --text-color: #1a1a1a;
+  --background-color: #ffffff;
+}
+
+.document-header {
+  color: var(--brand-color);
+  font-weight: bold;
+}
+  ```
+</CodeGroup>
+
+<Callout kind="success">
+  Mizta supports custom branding, single sign-on, and enterprise security features for large organizations.
+</Callout>
+
+## Analytics and Insights
+
+Track documentation usage and effectiveness with built-in analytics.
+
+- View metrics on document reads, searches, and popular content
+- Monitor team collaboration patterns
+- Generate reports for documentation ROI
+
+<Expandable title="Analytics Dashboard" default-open="false">
+  Access detailed analytics through the admin dashboard. View charts showing documentation engagement, search trends, and content performance over time.
+</Expandable>
+
+## Security and Compliance
+
+Mizta prioritizes security with enterprise-grade features.
+
+- End-to-end encryption for data in transit and at rest
+- SOC 2 Type II compliance
+- GDPR compliance for data privacy
+- Role-based access control
+
+## Getting Started with Features
+
+To explore these features:
+
+1. Sign in to your Mizta account
+2. Create or access a documentation space
+3. Click on "Settings" to configure integrations
+4. Use the "+" button to create new documents and test features
+
+<Callout kind="info">
+  Most features are available on all plans, with advanced features reserved for Pro and Enterprise tiers.
+</Callout>

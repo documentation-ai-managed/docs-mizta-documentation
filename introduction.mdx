@@ -1,0 +1,96 @@
+---
+title: Introduction
+description: Overview of Mizta and its core capabilities
+---
+
+## Getting Started with Mizta
+
+Mizta is your comprehensive documentation platform designed to help teams organize, manage, and share project documentation seamlessly. Whether you're building APIs, writing guides, or maintaining knowledge bases, Mizta provides the tools to create professional documentation that scales with your needs.
+
+<Columns cols={3}>
+  <Card title="Quick Setup" icon="zap" href="/docs/getting-started">
+    Get up and running in minutes with our streamlined setup process.
+  </Card>
+  <Card title="API Integration" icon="code" href="/docs/api-integration">
+    Connect Mizta with your existing tools and workflows.
+  </Card>
+  <Card title="Features" icon="star" href="/docs/features">
+    Explore powerful features for documentation management.
+  </Card>
+</Columns>
+
+## Why Choose Mizta?
+
+Mizta stands out from other documentation platforms with its focus on collaboration, searchability, and version control. Our platform supports multiple documentation formats, real-time editing, and integration with popular development tools.
+
+<Tabs>
+  <Tab title="Teams" icon="users">
+    Perfect for development teams needing organized documentation. Share knowledge across projects and maintain consistency with version-controlled docs.
+  </Tab>
+  <Tab title="APIs" icon="terminal">
+    Document your APIs with interactive examples, automatic schema generation, and comprehensive endpoint coverage.
+  </Tab>
+  <Tab title="Knowledge Bases" icon="book-open">
+    Create searchable knowledge bases with advanced tagging, categorization, and user permissions.
+  </Tab>
+</Tabs>
+
+## Key Benefits
+
+<Steps>
+  <Step title="Organize" icon="folder">
+    Structure your documentation with intuitive folders, tags, and categories. Keep related content grouped logically for easy navigation.
+  </Step>
+  <Step title="Collaborate" icon="users">
+    Work together in real-time with team members. Track changes, leave comments, and maintain version history for all documentation.
+  </Step>
+  <Step title="Integrate" icon="link">
+    Connect Mizta with your existing tools like GitHub, Slack, and CI/CD pipelines for seamless workflows.
+  </Step>
+  <Step title="Search" icon="search">
+    Find information instantly with powerful search capabilities across all your documentation spaces.
+  </Step>
+</Steps>
+
+## Getting Started
+
+To begin using Mizta, create your first documentation space. You can import existing documentation from Markdown files, Confluence, or other platforms.
+
+<CodeGroup tabs="CLI,API">
+  ```bash
+# Install Mizta CLI
+npm install -g mizta-cli
+
+# Initialize new documentation space
+mizta init my-project
+
+# Import existing docs
+import --source ./docs --format markdown
+  ```
+  ```javascript
+const Mizta = require('mizta-sdk');
+
+const client = new Mizta({
+  apiKey: 'your-api-key',
+  baseUrl: 'https://api.mizta.com'
+});
+
+// Create a new documentation space
+const space = await client.spaces.create({
+  name: 'My Project Docs',
+  description: 'Documentation for my project'
+});
+  ```
+</CodeGroup>
+
+<Callout kind="info">
+  Need help getting started? Check out our comprehensive guides in the Documentation tab or contact our support team.
+</Callout>
+
+## Next Steps
+
+Once you've set up your documentation space, explore our advanced features like webhooks for automated updates, custom themes, and analytics to track documentation usage.
+
+<Expandable title="Advanced Configuration" default-open="false">
+  For enterprise deployments, Mizta supports single sign-on (SSO), custom domains, and advanced permission controls. Configure these options in your admin panel after initial setup.
+</Expandable>

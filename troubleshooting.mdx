@@ -1,0 +1,134 @@
+---
+title: Troubleshooting
+description: Common issues and solutions for Mizta users
+---
+
+## Common Issues and Solutions
+
+Find solutions to frequently encountered problems with Mizta.
+
+<Columns cols={2}>
+  <Card title="Login Problems" icon="user" href="#login-issues">
+    Can't access your account? Check these common login issues.
+  </Card>
+  <Card title="Import Failures" icon="upload" href="#import-issues">
+    Having trouble importing documentation? Find fixes here.
+  </Card>
+</Columns>
+
+## Login and Account Issues
+
+<ExpandableGroup>
+  <Expandable title="Forgot Password" default-open="true">
+    Click "Forgot Password" on the login page. Enter your email address and check your inbox for reset instructions.
+  </Expandable>
+  <Expandable title="Account Locked" default-open="false">
+    After multiple failed login attempts, accounts are temporarily locked. Wait 15 minutes or contact support.
+  </Expandable>
+  <Expandable title="Email Verification" default-open="false">
+    Didn't receive verification email? Check your spam folder or resend the verification link.
+  </Expandable>
+</ExpandableGroup>
+
+## Document Editing Problems
+
+<Tabs>
+  <Tab title="Save Issues" icon="save">
+    If changes aren't saving, check your internet connection and try refreshing the page. Clear browser cache if needed.
+  </Tab>
+  <Tab title="Formatting Loss" icon="file-text">
+    Rich text formatting disappearing? Use the toolbar buttons instead of keyboard shortcuts. Avoid copying from external sources.
+  </Tab>
+  <Tab title="Collaboration Conflicts" icon="users">
+    Multiple users editing simultaneously? Mizta handles conflicts automatically, but communicate with your team to avoid overlaps.
+  </Tab>
+</Tabs>
+
+## Import and Export Issues
+
+<Steps>
+  <Step title="File Format" icon="file">
+    Ensure files are in supported formats: Markdown (.md), HTML, or plain text. Convert other formats before importing.
+  </Step>
+  <Step title="File Size" icon="database">
+    Large files may fail to import. Split large documents into smaller sections or compress images.
+  </Step>
+  <Step title="Permissions" icon="shield">
+    Check that you have write permissions for the target space. Contact space administrators if needed.
+  </Step>
+</Steps>
+
+## Performance Problems
+
+<CodeGroup tabs="Browser,BrowserCache">
+  ```javascript
+// Check browser console for errors
+// Press F12 to open developer tools
+console.log('Checking Mizta performance...');
+
+// Clear browser data
+// Go to Settings > Privacy > Clear browsing data
+  ```
+  ```bash
+# Clear DNS cache (Windows)
+ipconfig /flushdns
+
+# Clear DNS cache (macOS)
+sudo dscacheutil -flushcache
+
+# Clear DNS cache (Linux)
+sudo systemctl restart systemd-resolved
+  ```
+</CodeGroup>
+
+<Callout kind="alert">
+  Slow performance may indicate network issues or browser problems. Try using a different browser or device.
+</Callout>
+
+## API Integration Issues
+
+<ExpandableGroup>
+  <Expandable title="Authentication Errors" default-open="true">
+    Verify your API key is correct and has appropriate permissions. Regenerate keys if compromised.
+  </Expandable>
+  <Expandable title="Rate Limit Exceeded" default-open="false">
+    Implement exponential backoff in your code. Check your plan limits and upgrade if needed.
+  </Expandable>
+  <Expandable title="Webhook Failures" default-open="false">
+    Ensure webhook URLs are publicly accessible and can handle HTTPS requests. Check webhook signatures for security.
+  </Expandable>
+</ExpandableGroup>
+
+## Search and Navigation
+
+| Issue | Solution |
+|-------|----------|
+| Search not finding content | Check spelling and try different keywords. Use quotes for exact phrases. |
+| Broken links | Update internal links after moving or renaming documents. |
+| Missing documents | Verify document permissions and check if they were moved to a different space. |
+
+## Mobile and Browser Compatibility
+
+Mizta works on all modern browsers and mobile devices. For best experience:
+
+- Use Chrome, Firefox, Safari, or Edge
+- Enable JavaScript and cookies
+- Keep browser updated
+- Use desktop version for complex editing
+
+<Expandable title="Mobile-Specific Issues" default-open="false">
+  Some advanced features may be limited on mobile. Use the Mizta mobile app for better mobile experience.
+</Expandable>
+
+## Getting Help
+
+If you can't resolve an issue:
+
+1. Check this troubleshooting guide
+2. Search our community forums
+3. Contact support@mizta.com with detailed information
+4. Include error messages, browser version, and steps to reproduce
+
+<Callout kind="info">
+  Premium support is available for Pro and Enterprise customers with faster response times.
+</Callout>

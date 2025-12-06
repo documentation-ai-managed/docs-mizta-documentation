@@ -1,0 +1,195 @@
+---
+title: API Integration
+description: Guide to integrating with Mizta's REST API and SDKs
+---
+
+## Mizta API Overview
+
+Mizta provides a comprehensive REST API for programmatic access to all platform features. Use our API to automate documentation workflows and integrate with your existing tools.
+
+<Columns cols={2}>
+  <Card title="REST API" icon="terminal" href="#">
+    Access all Mizta features through our RESTful API endpoints.
+  </Card>
+  <Card title="SDKs" icon="code" href="#">
+    Use our official SDKs for JavaScript, Python, and Go.
+  </Card>
+</Columns>
+
+## Authentication
+
+Secure your API requests with proper authentication.
+
+<Tabs>
+  <Tab title="API Key" icon="key">
+    Use API keys for server-to-server authentication. Generate keys in your account settings.
+  </Tab>
+  <Tab title="OAuth" icon="lock">
+    Implement OAuth 2.0 for user-based authentication in client applications.
+  </Tab>
+</Tabs>
+
+## Core API Endpoints
+
+<Steps>
+  <Step title="Spaces" icon="folder">
+    Manage documentation spaces: create, update, list, and delete spaces.
+  </Step>
+  <Step title="Documents" icon="file-text">
+    Create, read, update, and delete documents within spaces.
+  </Step>
+  <Step title="Users" icon="users">
+    Manage user accounts, permissions, and team memberships.
+  </Step>
+  <Step title="Webhooks" icon="webhook">
+    Set up webhooks for real-time notifications of changes.
+  </Step>
+</Steps>
+
+## JavaScript SDK Usage
+
+Install and use our JavaScript SDK for easy integration.
+
+<CodeGroup tabs="Installation,Usage">
+  ```bash
+# Install via npm
+npm install mizta-sdk
+
+# Or via yarn
+yarn add mizta-sdk
+  ```
+  ```javascript
+const Mizta = require('mizta-sdk');
+
+const client = new Mizta({
+  apiKey: 'your-api-key-here',
+  baseUrl: 'https://api.mizta.com/v1'
+});
+
+// Create a new space
+async function createSpace() {
+  try {
+    const space = await client.spaces.create({
+      name: 'My API Docs',
+      description: 'Documentation for my REST API',
+      visibility: 'private'
+    });
+    console.log('Space created:', space.id);
+  } catch (error) {
+    console.error('Error creating space:', error.message);
+  }
+}
+
+createSpace();
+  ```
+</CodeGroup>
+
+## Python SDK Examples
+
+<ExpandableGroup>
+  <Expandable title="Installation" default-open="true">
+    ```bash
+    pip install mizta-sdk
+    ```
+  </Expandable>
+  <Expandable title="Creating Documents" default-open="false">
+    ```python
+from mizta_sdk import MiztaClient
+
+client = MiztaClient(api_key='your-api-key')
+
+document = client.documents.create(
+    space_id='space-123',
+    title='User Authentication Guide',
+    content='# Authentication\n\nThis guide covers user authentication methods.',
+    tags=['auth', 'security'],
+    folder_id='folder-456'
+)
+
+print(f'Document created with ID: {document.id}')
+    ```
+  </Expandable>
+  <Expandable title="Managing Users" default-open="false">
+    ```python
+# Add user to space
+user = client.users.invite(
+    email='newuser@example.com',
+    space_id='space-123',
+    role='editor'
+)
+
+# Update user permissions
+client.users.update_permissions(
+    user_id=user.id,
+    space_id='space-123',
+    permissions=['read', 'write', 'delete']
+)
+    ```
+  </Expandable>
+</ExpandableGroup>
+
+<Callout kind="tip">
+  Always handle errors gracefully in your API integrations. Check response status codes and implement retry logic for transient failures.
+</Callout>
+
+## Webhook Integration
+
+Set up webhooks to receive real-time notifications.
+
+<CodeGroup tabs="Setup,Payload">
+  ```javascript
+// Register webhook
+const webhook = await client.webhooks.create({
+  url: 'https://your-app.com/webhook/mizta',
+  events: ['document.created', 'document.updated'],
+  secret: 'your-webhook-secret'
+});
+  ```
+  ```json
+{
+  "event": "document.updated",
+  "data": {
+    "document_id": "doc-123",
+    "space_id": "space-456",
+    "changes": {
+      "title": "Updated API Reference",
+      "updated_by": "user@example.com",
+      "timestamp": "2024-01-15T14:30:00Z"
+    }
+  },
+  "signature": "sha256=abc123..."
+}
+  ```
+</CodeGroup>
+
+## Rate Limits and Best Practices
+
+<Expandable title="API Rate Limits" default-open="false">
+  - 1000 requests per hour for free tier
+  - 10000 requests per hour for Pro tier
+  - Implement exponential backoff for retries
+  - Cache responses to reduce API calls
+</Expandable>
+
+## Error Handling
+
+Handle API errors properly in your applications.
+
+```javascript
+try {
+  const document = await client.documents.get('doc-123');
+} catch (error) {
+  if (error.status === 404) {
+    console.log('Document not found');
+  } else if (error.status === 429) {
+    console.log('Rate limit exceeded, retrying...');
+    // Implement retry logic
+  } else {
+    console.error('API error:', error.message);
+  }
+}
+```
+
+<Callout kind="info">
+  Check our API reference documentation for complete endpoint specifications and response schemas.
+</Callout>

@@ -1,0 +1,135 @@
+---
+title: Getting Started
+description: Step-by-step guide to set up and start using Mizta
+---
+
+## Setting Up Your Mizta Account
+
+Getting started with Mizta is straightforward. Follow these steps to create your account and set up your first documentation space.
+
+<Steps>
+  <Step title="Create Account" icon="user">
+    Visit mizta.com and sign up for a free account. You'll receive a confirmation email with your login details.
+  </Step>
+  <Step title="Verify Email" icon="mail">
+    Click the verification link in your email to activate your account and gain access to the platform.
+  </Step>
+  <Step title="Create Space" icon="folder">
+    Navigate to your dashboard and click "New Space" to create your first documentation workspace.
+  </Step>
+  <Step title="Import Content" icon="upload">
+    Import existing documentation from Markdown files, GitHub repositories, or other sources.
+  </Step>
+</Steps>
+
+## Configuring Your Documentation Space
+
+After creating your space, configure it to match your project's needs.
+
+<Tabs>
+  <Tab title="Basic Setup" icon="settings">
+    Set your space name, description, and visibility settings. Choose between public, private, or team-only access.
+  </Tab>
+  <Tab title="Permissions" icon="shield">
+    Define user roles and permissions. Assign editors, viewers, and administrators for different documentation sections.
+  </Tab>
+  <Tab title="Integrations" icon="link">
+    Connect external tools like GitHub, Slack, and Jira for automated documentation updates.
+  </Tab>
+</Tabs>
+
+## Creating Your First Document
+
+<ExpandableGroup>
+  <Expandable title="Using the Web Editor" default-open="true">
+    Click "New Document" in your space dashboard. Use the rich text editor to write content with formatting, images, and links.
+  </Expandable>
+  <Expandable title="Importing from Markdown" default-open="false">
+    Upload Markdown files directly or import from a GitHub repository. Mizta automatically converts formatting and preserves structure.
+  </Expandable>
+  <Expandable title="API Creation" default-open="false">
+    Use our REST API to programmatically create documents. This is useful for automated documentation generation.
+  </Expandable>
+</ExpandableGroup>
+
+## Organizing Content
+
+Keep your documentation organized with folders and tags.
+
+<Columns cols={2}>
+  <Card title="Folders" icon="folder" href="#">
+    Create hierarchical folder structures to categorize your documentation by feature, component, or department.
+  </Card>
+  <Card title="Tags" icon="tag" href="#">
+    Apply tags to documents for cross-cutting organization. Tags help with search and filtering.
+  </Card>
+</Columns>
+
+## Code Examples
+
+Here's how to create a simple document using our JavaScript SDK:
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+const Mizta = require('mizta-sdk');
+
+const client = new Mizta({
+  apiKey: process.env.MIZTA_API_KEY
+});
+
+async function createDocument() {
+  const doc = await client.documents.create({
+    spaceId: 'my-space-id',
+    title: 'API Documentation',
+    content: '# Welcome to our API\n\nThis document covers our REST endpoints.',
+    tags: ['api', 'reference']
+  });
+  
+  console.log('Document created:', doc.id);
+}
+
+createDocument();
+  ```
+  ```python
+from mizta_sdk import MiztaClient
+
+client = MiztaClient(api_key='your-api-key')
+
+doc = client.documents.create(
+    space_id='my-space-id',
+    title='API Documentation',
+    content='# Welcome to our API\n\nThis document covers our REST endpoints.',
+    tags=['api', 'reference']
+)
+
+print(f'Document created: {doc.id}')
+  ```
+</CodeGroup>
+
+<Callout kind="tip">
+  Use our CLI tool for bulk operations. Install it globally with `npm install -g mizta-cli` and run `mizta --help` for available commands.
+</Callout>
+
+## Best Practices
+
+Follow these recommendations for effective documentation management:
+
+- Keep documents focused on single topics
+- Use consistent naming conventions
+- Regularly review and update outdated content
+- Leverage templates for common document types
+
+<Expandable title="Templates and Automation" default-open="false">
+  Mizta provides templates for common documentation types like API references, user guides, and release notes. Set up webhooks to automatically update documentation when code changes.
+</Expandable>
+
+## Troubleshooting
+
+If you encounter issues during setup:
+
+- Check your internet connection and browser compatibility
+- Ensure your email is verified for full access
+- Clear browser cache if experiencing display issues
+- Contact support@mizta.com for assistance
+
+This guide covers the basics of getting started with Mizta. Explore our other documentation sections for advanced features and integrations.
